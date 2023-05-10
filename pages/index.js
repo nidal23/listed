@@ -1,9 +1,7 @@
 import Navbar from '@/components/Navbar'
 import Sidebar from '@/components/Sidebar'
-import Head from 'next/head'
-
-
-
+import Widgets from "@/components/Widgets";
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -14,8 +12,26 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Sidebar />
-      <Navbar />
+      <div className="flex p-6 bg-primary-bg gap-2 md:min-w-fit">
+        <div>
+          <Sidebar />
+        </div>
+
+        <div className="flex-1 bg-transparent">
+          <div className="flex flex-col">
+            <div>
+              <Navbar />
+            </div>
+            <div className="flex p-20 gap-20">
+              <Widgets />
+              <Widgets />
+              <Widgets />
+              <Widgets />
+            </div>
+            <div className="flex py-5 px-20 gap-20">charts</div>
+          </div>
+        </div>
+      </div>
     </>
-  )
+  );
 }
