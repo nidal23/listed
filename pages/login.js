@@ -3,8 +3,17 @@ import Layout from "@/layout/layout";
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
+import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
+
+  async function handleGoogleSignin() {
+    signIn('google', { callbackUrl: "https://localhost:3000" })
+  }
+
+  async function handleGithubSignin() {
+    signIn('github', { callbackUrl: "https://localhost:3000" })
+  }
   return (
     <Layout>
       <Head>
@@ -17,13 +26,13 @@ const Login = () => {
         </div>
         <div className="flex gap-3">
           <div>
-            <button className="bg-red-200 px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+            <button onClick={handleGoogleSignin} className="bg-red-200 px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
               <FcGoogle className="w-6 h-6" />
               <span>Sign in with Google</span>
             </button>
           </div>
           <div>
-            <button className="bg-gray-300 px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+            <button onClick={handleGithubSignin} className="bg-gray-300 px-4 py-2 border flex gap-2 border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
               <AiFillGithub className="w-6 h-6" />
               <span>Sign in with Github</span>
             </button>
