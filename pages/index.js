@@ -1,5 +1,6 @@
-import Navbar from '@/components/Navbar'
-import Sidebar from '@/components/Sidebar'
+import LineChart from "@/components/LineChart";
+import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 import Widgets from "@/components/Widgets";
 import Head from "next/head";
 
@@ -12,23 +13,27 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex p-6 bg-primary-bg gap-2 md:min-w-fit">
-        <div>
-          <Sidebar />
-        </div>
+      <div className="bg-primary-bg min-h-screen">
+        <div className="flex p-6 gap-2 md:min-w-fit">
+          <div>
+            <Sidebar />
+          </div>
 
-        <div className="flex-1 bg-transparent">
-          <div className="flex flex-col">
-            <div>
-              <Navbar />
+          <div className="flex-1 bg-transparent">
+            <div className="flex flex-col h-full">
+              <div>
+                <Navbar />
+              </div>
+              <div className="flex flex-wrap gap-10 p-8 md:justify-center">
+                <Widgets type={"revenue"} />
+                <Widgets type={"transaction"} />
+                <Widgets type={"likes"} />
+                <Widgets type={"users"} />
+              </div>
+              <div className="flex flex-grow py-5 px-20 justify-center items-center">
+                <LineChart />
+              </div>
             </div>
-            <div className="flex p-20 gap-20 md:flex-wrap md:gap-10">
-              <Widgets type={"revenue"} />
-              <Widgets type={"transaction"} />
-              <Widgets type={"likes"} />
-              <Widgets type={"users"} />
-            </div>
-            <div className="flex py-5 px-20 gap-20">charts</div>
           </div>
         </div>
       </div>
