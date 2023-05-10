@@ -36,7 +36,7 @@ export const options = {
 
 const PieChart = () => {
   return (
-    <div className="flex flex-col w-fit md:col-span-2 md:ml-7 relative m-auto p-6 border rounded-lg bg-white">
+    <div className="flex flex-col h-90  md:ml-7 relative m-auto p-6 border rounded-xl bg-white lg:w-[45%] md:w-[50%]">
       <div className="flex justify-center items-center py-2">
         <div className="flex-1 font-bold text-xl text-left">
           <h2>Top Products</h2>

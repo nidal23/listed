@@ -103,7 +103,7 @@ const LineChart = () => {
   }, [handleResize]);
 
   return (
-    <div className="w-full relative h-auto m-auto p-4 border rounded-lg bg-white">
+    <div className="w-full relative h-auto m-auto p-4 border rounded-xl bg-white">
       <div className="flex flex-col ">
         <div className="font-bold text-xl text-left">
           <h2>Activities</h2>

@@ -22,7 +22,7 @@ export default function Home() {
           </div>
 
           <div className="flex-1 bg-transparent">
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full sm:flex-wrap">
               <div>
                 <Navbar />
               </div>
@@ -35,7 +35,7 @@ export default function Home() {
               <div className=" py-3 px-7">
                 <LineChart />
               </div>
-              <div className=" grid md:grid-cols-3 grid-cols-1 gap-4">
+              <div className="flex sm:flex-wrap gap-3">
                 <PieChart />
                 <Schedule />
               </div>
