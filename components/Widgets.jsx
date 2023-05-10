@@ -12,7 +12,7 @@ const Widgets = ({ type }) => {
       data = {
         title: "Total Revenue",
         isMoney: true,
-        number: 12323,
+        number: "3,920",
         bg: "bg-green-200",
         icon: <BsCashCoin className="text-lg" />,
       };
@@ -21,7 +21,7 @@ const Widgets = ({ type }) => {
       data = {
         title: "Total Transaction",
         isMoney: false,
-        number: 12322,
+        number: "2,400",
         bg: "bg-blue-200",
         icon: <GrTransaction className="text-lg" />,
       };
@@ -30,7 +30,7 @@ const Widgets = ({ type }) => {
       data = {
         title: "Total Likes",
         isMoney: false,
-        number: 12332,
+        number: "12,332",
         bg: "bg-red-200",
         icon: <AiOutlineLike className="text-lg" />,
       };
@@ -39,7 +39,7 @@ const Widgets = ({ type }) => {
       data = {
         title: "Total Users",
         isMoney: false,
-        number: 1232,
+        number: "549",
         bg: "bg-yellow-200",
         icon: <FiUsers className="text-lg" />,
       };

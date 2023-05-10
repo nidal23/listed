@@ -110,7 +110,8 @@ const LineChart = () => {
         </div>
         <div>
           <div className="text-gray-300 text-xs flex gap-1">
-            May - June 2021 <AiOutlineDown className="h-3 w-3 text-gray-500" />
+            May - June 2021{" "}
+            <AiOutlineDown className="h-3 w-3 text-gray-500 cursor-pointer" />
           </div>
         </div>
       </div>

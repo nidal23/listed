@@ -1,5 +1,7 @@
 import LineChart from "@/components/LineChart";
 import Navbar from "@/components/Navbar";
+import PieChart from "@/components/PieChart";
+import Schedule from "@/components/Schedule";
 import Sidebar from "@/components/Sidebar";
 import Widgets from "@/components/Widgets";
 import Head from "next/head";
@@ -32,6 +34,10 @@ export default function Home() {
               </div>
               <div className=" py-3 px-7">
                 <LineChart />
+              </div>
+              <div className=" grid md:grid-cols-3 grid-cols-1 gap-4">
+                <PieChart />
+                <Schedule />
               </div>
             </div>
           </div>
