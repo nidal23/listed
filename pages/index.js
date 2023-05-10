@@ -13,7 +13,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-primary-bg min-h-screen">
+      <div className="bg-primary-bg">
         <div className="flex p-6 gap-2 md:min-w-fit">
           <div>
             <Sidebar />
@@ -30,7 +30,7 @@ export default function Home() {
                 <Widgets type={"likes"} />
                 <Widgets type={"users"} />
               </div>
-              <div className="flex flex-grow py-5 px-20 justify-center items-center">
+              <div className=" py-3 px-7">
                 <LineChart />
               </div>
             </div>

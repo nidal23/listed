@@ -50,7 +50,7 @@ const Widgets = ({ type }) => {
 
   return (
     <div
-      className={`flex justify-between flex-1 p-7 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] ${data.bg} rounded-lg `}
+      className={`flex justify-between flex-1 p-7 md:p-3 shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px] ${data.bg} rounded-lg `}
     >
       <div className="flex flex-col justify-between gap-4">
         <span className="font-semibold text-sm text-black">{data.title}</span>
