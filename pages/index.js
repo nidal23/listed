@@ -22,11 +22,11 @@ export default function Home() {
             <div>
               <Navbar />
             </div>
-            <div className="flex p-20 gap-20">
-              <Widgets />
-              <Widgets />
-              <Widgets />
-              <Widgets />
+            <div className="flex p-20 gap-20 md:flex-wrap md:gap-10">
+              <Widgets type={"revenue"} />
+              <Widgets type={"transaction"} />
+              <Widgets type={"likes"} />
+              <Widgets type={"users"} />
             </div>
             <div className="flex py-5 px-20 gap-20">charts</div>
           </div>

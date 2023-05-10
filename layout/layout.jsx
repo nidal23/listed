@@ -1,6 +1,6 @@
 const Layout = ({ children }) => {
   return (
-    <div className=" m-auto h-screen bg-slate-50 rounded-md  grid lg:grid-cols-5 md:grid-cols-2">
+    <div className=" m-auto h-screen bg-primary-bg rounded-md  grid lg:grid-cols-5 md:grid-cols-2">
       <div className="bg-black flex justify-center items-center text-white font-bold text-3xl lg:col-span-2 md:col-span-0">
         Board.
       </div>
