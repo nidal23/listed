@@ -11,9 +11,9 @@ import Login from "./login";
 export default function Home() {
   const { data: session } = useSession();
 
-  function handleSignOut() {
-    signOut();
-  }
+  // function handleSignOut() {
+  //   signOut();
+  // }
   return (
     <div>
       <Head>
@@ -33,12 +33,12 @@ export default function Home() {
               <div className="flex flex-col h-full sm:flex-wrap">
                 <div>
                   <Navbar />
-                  <div
+                  {/* <div
                     onClick={handleSignOut}
                     className="text-red-900 font-black cursor-pointer"
                   >
                     sign out
-                  </div>
+                  </div> */}
                 </div>
                 <div className="flex flex-wrap gap-10 p-8 md:justify-center">
                   <Widgets type={"revenue"} />
