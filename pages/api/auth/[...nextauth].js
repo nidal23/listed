@@ -33,7 +33,8 @@ export const authOptions = {
                 }
 
                 return result
-            }
+            },
+            secret: process.env.NEXT_AUTH_SECRET
         })
         // ...add more providers here
     ],
