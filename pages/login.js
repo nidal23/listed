@@ -29,11 +29,11 @@ const Login = () => {
     if (status.ok) router.push(status.url)
   }
   async function handleGoogleSignin() {
-    signIn('google', { callbackUrl: "https://localhost:3000" })
+    signIn('google', { callbackUrl: process.env.NEXTAUTH_URL })
   }
 
   async function handleGithubSignin() {
-    signIn('github', { callbackUrl: "https://localhost:3000" })
+    signIn('github', { callbackUrl: process.env.NEXTAUTH_URL })
   }
   return (
     <Layout>
