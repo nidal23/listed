@@ -23,7 +23,7 @@ const Login = () => {
       redirect: false,
       email: values.email,
       password: values.password,
-      callbackUrl: '/'
+      callbackUrl: process.env.NEXTAUTH_URL
     })
 
     if (status.ok) router.push(status.url)
