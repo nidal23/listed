@@ -4,9 +4,30 @@ import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillGithub } from "react-icons/ai";
 import { useSession, signIn } from "next-auth/react";
+import { useFormik } from "formik";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
 
+    onSubmit
+  })
+  const router = useRouter()
+
+  async function onSubmit(values) {
+    const status = await signIn('credentials', {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+      callbackUrl: '/'
+    })
+
+    if (status.ok) router.push(status.url)
+  }
   async function handleGoogleSignin() {
     signIn('google', { callbackUrl: "https://localhost:3000" })
   }
@@ -39,7 +60,7 @@ const Login = () => {
           </div>
         </div>
         <div className="bg-white p-10 rounded-lg">
-          <form className="flex flex-col gap-5 ">
+          <form onSubmit={formik.handleSubmit} className="flex flex-col gap-5 ">
             <div>
               <label
                 htmlFor="email"
@@ -53,6 +74,7 @@ const Login = () => {
                   name="email"
                   id="email"
                   placeholder="Email"
+                  {...formik.getFieldProps('email')}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-300 sm:text-sm sm:leading-6 p-2"
                 />
               </div>
@@ -70,17 +92,18 @@ const Login = () => {
                   name="password"
                   id="password"
                   placeholder="Password"
+                  {...formik.getFieldProps('password')}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-300 sm:text-sm sm:leading-6 p-2"
                 />
               </div>
-              {/* <div className="text-left mt-2">
+              {formik.values.password ? <div className="text-left mt-2">
                 <a
                   href="#"
                   className=" text-xs font-semibold text-blue-400 hover:text-blue-300"
                 >
                   Forgot Password?
                 </a>
-              </div> */}
+              </div> : ""}
             </div>
 
             {/* login button */}
@@ -106,3 +129,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
+

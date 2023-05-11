@@ -1,8 +1,33 @@
 import Layout from "@/layout/layout";
 import Head from "next/head";
 import Link from "next/link";
+import { useFormik } from "formik";
+import { useRouter } from "next/router";
 
 const Register = () => {
+    const router = useRouter()
+    const formik = useFormik({
+        initialValues: {
+            username: "",
+            email: "",
+            password: "",
+        },
+        onSubmit,
+    });
+
+    async function onSubmit(values) {
+        const options = {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(values)
+        }
+
+        await fetch("http://localhost:3000/api/auth/signup", options)
+            .then(res => res.json())
+            .then((data) => {
+                if (data) router.push("http://localhost:3000")
+            })
+    }
     return (
         <Layout>
             <Head>
@@ -15,7 +40,7 @@ const Register = () => {
                 </div>
 
                 <div className="bg-white p-10 rounded-lg">
-                    <form className="flex flex-col gap-5 ">
+                    <form className="flex flex-col gap-5 " onSubmit={formik.handleSubmit}>
                         <div>
                             <label
                                 htmlFor="username"
@@ -29,6 +54,7 @@ const Register = () => {
                                     name="username"
                                     id="username"
                                     placeholder="User Name"
+                                    {...formik.getFieldProps("username")}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-300 sm:text-sm sm:leading-6 p-2"
                                 />
                             </div>
@@ -46,6 +72,7 @@ const Register = () => {
                                     name="email"
                                     id="email"
                                     placeholder="Email"
+                                    {...formik.getFieldProps("email")}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-300 sm:text-sm sm:leading-6 p-2"
                                 />
                             </div>
@@ -63,11 +90,11 @@ const Register = () => {
                                     name="password"
                                     id="password"
                                     placeholder="Password"
+                                    {...formik.getFieldProps("password")}
                                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-300 sm:text-sm sm:leading-6 p-2"
                                 />
                             </div>
                         </div>
-
 
                         {/* Register button */}
                         <div>
